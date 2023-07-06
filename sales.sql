@@ -27,7 +27,7 @@ s
 
 #11
 #the lowest value 
-
+/*
 SELECT name AS client_name, MIN(value) AS lowest_project_value
  FROM clients
 JOIN projects ON project_id = id
@@ -37,6 +37,11 @@ SELECT MIN(value)
 FROM projects
 ) 
 LIMIT 1;
+*/
 
 
-
+#12 As a member of the Sales team I want to see a list of clients with the average value of their projects
+ SELECT name AS client_name, AVG(value) AS average_project_value
+ FROM clients
+ LEFT JOIN projects ON id = project_id
+ GROUP BY id
