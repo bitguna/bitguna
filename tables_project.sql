@@ -1,42 +1,32 @@
 
+### 8 As a member of the Sales team I want to be able to assign a client to a project. A client can have multiple projects but a project can only have 1 client
+/*
 USE Project_Academia_WojciechJ;
 
-CREATE TABLE sales_employees (
-  id INT PRIMARY KEY AUTO_INCREMENT,
-name VARCHAR(50) NOT NULL,
-salary VARCHAR(50) NOT NULL,
-bank_account VARCHAR(100) NOT NULL,
-insurance_number VARCHAR(100) NOT NULL,
-  commision_rate VARCHAR(20) NOT NULL
-);
+ALTER TABLE projects 
+ADD COLUMN client_id INT,
+ADD FOREIGN KEY(client_id) REFERENCES clients(id); 
 
-CREATE TABLE delivery_employees (
-  id INT PRIMARY KEY AUTO_INCREMENT,
-name VARCHAR(50) NOT NULL,
-salary VARCHAR(50) NOT NULL,
-bank_account VARCHAR(100) NOT NULL,
-insurance_number VARCHAR(100) NOT NULL
-);
+*/
 
-CREATE TABLE clients (
-  id INT PRIMARY KEY AUTO_INCREMENT,
-  name VARCHAR(100) NOT NULL,
-  address VARCHAR(255) NOT NULL,
-  phone_number VARCHAR(20) NOT NULL
-);
-
-CREATE TABLE projects (
-  project_id INT PRIMARY KEY AUTO_INCREMENT,
-  project_name VARCHAR(100) NOT NULL,
-  value DECIMAL(10, 2) NOT NULL,
-  technologies VARCHAR(255) NOT NULL
-);
+#9#As a member of the Sales team I want to see a list of clients, the name of the sales employee who works with that client and the list of projects that the client has
 
 
-CREATE TABLE project_delivery_employees (
-  project_id INT,
-  delivery_employee_id INT,
-  FOREIGN KEY (project_id) REFERENCES projects(id),
-  FOREIGN KEY (delivery_employee_id) REFERENCES delivery_employees(id),
-  PRIMARY KEY (project_id, delivery_employee_id)
-);
+
+
+
+#10 As a member of the Sales team I want to see a client who has the highest value of projects
+/*
+ SELECT name AS client_name, SUM(value) AS total_project_value
+ FROM clients
+ JOIN projects ON project_id = id
+ GROUP BY project_id
+ ORDER BY total_project_value DESC
+ LIMIT 1;
+s
+*/
+
+#11
+SELECT * FROM projects
+
+
