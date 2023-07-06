@@ -36,7 +36,7 @@ CREATE TABLE projects (
 CREATE TABLE project_delivery_employees (
   project_id INT,
   delivery_employee_id INT,
-  FOREIGN KEY (project_id) REFERENCES projects(id),
+  FOREIGN KEY (project_id) REFERENCES projects(project_id),
   FOREIGN KEY (delivery_employee_id) REFERENCES delivery_employees(id),
   PRIMARY KEY (project_id, delivery_employee_id)
 );
